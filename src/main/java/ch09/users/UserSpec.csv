@@ -1,0 +1,8 @@
+routing,method,입력 parameter,Viewer 또는 다음 행선지,넘겨줄 파라메터,파일 이름
+/ch09/user,,,/jw/ch09/user, ,
+list,get,-,list (Servlet),List<User>,web /ch09/user/list.html
+login,post,"uid,pwd",,,web /ch09/user/login.html
+regester,post,"uid,pwd",list (Servlet),,web /ch09/user/register.html
+update,get,uid,list (Servlet),User,java /ch09/user/UpdateViewer2.java
+,post,,list (Servlet),,
+delete,post,uid,list (Servlet),,java /ch09/user/Delete.java

@@ -13,19 +13,18 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Controller
  */
-//@WebServlet({ "/ch08/customer/list", "/ch08/customer/register", "/ch08/customer/update", "/ch08/customer/delete" })
-@WebServlet({ "/ch08/customer/*")
+@WebServlet({ "/ch08/customer/list", "/ch08/customer/register", "/ch08/customer/update", "/ch08/customer/delete" })
+//@WebServlet("/ch08/customer/*")
 public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-//		String servletPath = request.getServletPath();
 		String requestUri = request.getRequestURI();
-		System.out.println(requestUri);
+		System.out.println("GET: " + requestUri);
 		CustomerDao dao = new CustomerDao();
 		response.setContentType("text/html; charset=utf-8");
 
-		if (servletPath.indexOf("list") > 0) {
+		if (requestUri.indexOf("list") > 0) {
 			List<Customer> list = dao.getCustomers();
 			request.setAttribute("customerList", list);
 			RequestDispatcher rd = request.getRequestDispatcher("/ch08/customer/listView");
@@ -50,11 +49,12 @@ public class Controller extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		String servletPath = request.getServletPath();
+		String requestUri = request.getRequestURI();
+		System.out.println("POST: " + requestUri);
 		CustomerDao dao = new CustomerDao();
 		response.setContentType("text/html; charset=utf-8");
 
-		if (servletPath.indexOf("register") > 0) {
+		if (requestUri.indexOf("register") > 0) {
 			String uid = request.getParameter("uid");
 			String uname = request.getParameter("uname");
 
@@ -67,7 +67,7 @@ public class Controller extends HttpServlet {
 				dao.insertCustomer(c);
 				response.sendRedirect("/jw/ch08/customer/list");
 			}
-		} else if (servletPath.indexOf("update") > 0) {
+		} else if (requestUri.indexOf("update") > 0) {
 			String uid = request.getParameter("uid");
 			String uname = request.getParameter("uname");
 
