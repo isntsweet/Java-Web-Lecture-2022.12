@@ -11,18 +11,20 @@
   </welcome-file-list>
   
   <error-page>
-	  <error-code>404</error-code>
-	  <location>/error/error_404.jsp</location>
+  	<error-code>404</error-code>
+  	<location>/error/error_404.jsp</location>
   </error-page>
-    <error-page>
-	  <error-code>500</error-code>
-	  <location>/error/error_500.jsp</location>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/error/error_500.jsp</location>
   </error-page>
+  
   <context-param>
   	<param-name>menu</param-name>
   	<param-value>짬뽕 짜장면 탕수육</param-value>
   </context-param>
-   <!-- <filter>
+  
+  <!-- <filter>
   	<filter-name>HangulEncoding</filter-name>
   	<filter-class>ch10.EncodingFilter</filter-class>
   </filter>
@@ -31,12 +33,12 @@
   	<url-pattern>/ch10/*</url-pattern>
   </filter-mapping> -->
   
-<!-- <servlet>
-	<servlet-name>first</servlet-name>
-	<servlet-class>ch05.FirstSevlet</servlet-class>
-</servlet>
-<servlet-mapping>
-	<servlet-name>first</servlet-name>
-	<url-pattern>/first</url-pattern>
-</servlet-mapping> -->
+  <!-- <servlet>
+  	<servlet-name>first</servlet-name>
+  	<servlet-class>ch05.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>first</servlet-name>
+  	<url-pattern>/first</url-pattern>
+  </servlet-mapping> -->
 </web-app>
